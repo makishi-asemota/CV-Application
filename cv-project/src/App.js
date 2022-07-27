@@ -24,6 +24,7 @@ class App extends Component {
       },
       inputs: [],
     };
+    this.onChange = this.onChange.bind(this);
   }
 
   onChange = (e) => {
@@ -64,7 +65,6 @@ class App extends Component {
             <label htmlFor="userName">Enter Name: </label>
             <input
               type="text"
-              value={input.userName}
               onChange={this.onChange}
               id="userName"
               name="userName"
@@ -73,7 +73,6 @@ class App extends Component {
             <label htmlFor="email">Enter email: </label>
             <input
               type="email"
-              value={input.email}
               onChange={this.onChange}
               id="email"
               name="email"
@@ -82,7 +81,6 @@ class App extends Component {
             <label htmlFor="phoneNumber">Phone Number: </label>
             <input
               type="tel"
-              value={input.phoneNumber}
               onChange={this.onChange}
               id="phoneNumber"
               name="phoneNumber"
@@ -94,7 +92,6 @@ class App extends Component {
             <label htmlFor="schoolName">University Name: </label>
             <input
               type="text"
-              value={input.schoolName}
               onChange={this.onChange}
               id="schoolName"
               name="schoolName"
@@ -103,7 +100,6 @@ class App extends Component {
             <label htmlFor="major">Title of major: </label>
             <input
               type="text"
-              value={input.major}
               onChange={this.onChange}
               id="major"
               name="major"
@@ -111,8 +107,7 @@ class App extends Component {
 
             <label htmlFor="gradDate">Date Graduated: </label>
             <input
-              type="text"
-              value={input.gradDate}
+              type="date"
               onChange={this.onChange}
               id="gradDate"
               name="gradDate"
@@ -124,7 +119,6 @@ class App extends Component {
             <label htmlFor="companyName">Enter Company Name: </label>
             <input
               type="text"
-              value={input.companyName}
               onChange={this.onChange}
               id="companyName"
               name="companyName"
@@ -133,7 +127,6 @@ class App extends Component {
             <label htmlFor="position">Position Title: </label>
             <input
               type="text"
-              value={input.position}
               onChange={this.onChange}
               id="position"
               name="position"
@@ -142,25 +135,17 @@ class App extends Component {
             <label htmlFor="tasks">Main tasks for position: </label>
             <textarea
               type="text"
-              value={input.tasks}
               onChange={this.onChange}
               id="tasks"
               name="tasks"
             />
 
             <label htmlFor="date">Start date: </label>
-            <input
-              type="date"
-              value={input.date}
-              onChange={this.onChange}
-              id="date"
-              name="date"
-            />
+            <input type="date" onChange={this.onChange} id="date" name="date" />
 
             <label htmlFor="untilDate">End date: </label>
             <input
               type="date"
-              value={input.unitlDate}
               onChange={this.onChange}
               id="untilDate"
               name="untilDate"
