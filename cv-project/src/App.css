@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+fieldset {
+  background-color: #eeeeee;
+}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
+
+input {
+  margin: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.block {
+  display: block;
+}
