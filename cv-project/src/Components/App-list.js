@@ -1,27 +1,28 @@
 import React from "react";
+import FillForm from "./form";
 
-const List = (props) => {
-  const { inputs } = props;
+const Input = (props) => {
+  const { tasks } = props;
 
   return (
     <div>
-      {inputs.map((input) => (
-        <div className="card" key={input.id}>
-          <p>{input.userName}</p>
-          <p>{input.email}</p>
-          <p>{input.phoneNumber}</p>
-          <p>{input.schoolName}</p>
-          <p>{input.major}</p>
-          <p>{input.gradDate}</p>
-          <p>{input.companyName}</p>
-          <p>{input.position}</p>
-          <p>{input.tasks}</p>
-          <p>{input.date}</p>
-          <p>{input.untilDate}</p>
+      {tasks.map((task) => (
+        <div className="card" key={task.id}>
+          <p>{task.userName}</p>
+          <p>{task.email}</p>
+          <p>{task.phoneNumber}</p>
+          <p>{task.schoolName}</p>
+          <p>{task.major}</p>
+          <p>{task.gradDate}</p>
+          <p>{task.companyName}</p>
+          <p>{task.position}</p>
+          <p>{task.tasks}</p>
+          <p>{task.date}</p>
+          <p>{task.untilDate}</p>
         </div>
       ))}
     </div>
   );
 };
 
-export default List;
+export default Input;

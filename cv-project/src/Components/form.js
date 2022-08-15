@@ -1,33 +1,10 @@
-import React from "react";
-import { useState } from "react";
+import React, { Component } from "react";
+//import Input from "./App-list";
 
-function FillForm({ addInput }) {
-  const [state, setState] = useState({
-    userName: "",
-    email: "",
-    phoneNumber: "",
-    schoolName: "",
-    major: "",
-    gradDate: "",
-    companyName: "",
-    position: "",
-    tasks: "",
-    date: "",
-    unitlDate: "",
-  });
-
-  function handleChange(e) {
-    const value = e.target.value;
-    setState({
-      ...state,
-      [e.target.name]: value,
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    addInput(state);
-    setState({
+export default class FillForm extends Component {
+  constructor() {
+    super();
+    this.state = {
       userName: "",
       email: "",
       phoneNumber: "",
@@ -36,126 +13,160 @@ function FillForm({ addInput }) {
       gradDate: "",
       companyName: "",
       position: "",
-      tasks: "",
+      Maintasks: "",
       date: "",
       unitlDate: "",
-    });
+      showForm: false,
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Personal Information</legend>
-          <label htmlFor="userName">Enter Name: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            id="userName"
-            name="userName"
-            value={state.userName}
-          />
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+    console.log(this.state);
+  }
 
-          <label htmlFor="email">Enter email: </label>
-          <input
-            type="email"
-            onChange={handleChange}
-            id="email"
-            name="email"
-            value={state.email}
-          />
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({
+      showForm: true,
+    });
 
-          <label htmlFor="phoneNumber">Phone Number: </label>
-          <input
-            type="tel"
-            onChange={handleChange}
-            id="phoneNumber"
-            name="phoneNumber"
-            value={state.phoneNumber}
-          />
-        </fieldset>
+    console.log("form submitted");
+  }
 
-        <fieldset>
-          <legend>Educational Experience</legend>
-          <label htmlFor="schoolName">University Name: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            id="schoolName"
-            name="schoolName"
-            value={state.schoolName}
-          />
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <fieldset>
+            <legend>Personal Information</legend>
+            <label htmlFor="userName">Enter Name: </label>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              id="userName"
+              name="userName"
+              value={this.state.userName}
+            />
 
-          <label htmlFor="major">Title of major: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            id="major"
-            name="major"
-            value={state.major}
-          />
+            <label htmlFor="email">Enter email: </label>
+            <input
+              type="email"
+              onChange={this.handleChange}
+              id="email"
+              name="email"
+              value={this.state.email}
+            />
 
-          <label htmlFor="gradDate">Date Graduated: </label>
-          <input
-            type="date"
-            onChange={handleChange}
-            id="gradDate"
-            name="gradDate"
-            value={state.gradDate}
-          />
-        </fieldset>
+            <label htmlFor="phoneNumber">Phone Number: </label>
+            <input
+              type="tel"
+              onChange={this.handleChange}
+              id="phoneNumber"
+              name="phoneNumber"
+              value={this.state.phoneNumber}
+            />
+          </fieldset>
 
-        <fieldset>
-          <legend>Work Experience</legend>
-          <label htmlFor="companyName">Enter Company Name: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            id="companyName"
-            name="companyName"
-            value={state.companyName}
-          />
+          <fieldset>
+            <legend>Educational Experience</legend>
+            <label htmlFor="schoolName">University Name: </label>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              id="schoolName"
+              name="schoolName"
+              value={this.state.schoolName}
+            />
 
-          <label htmlFor="position">Position Title: </label>
-          <input
-            type="text"
-            onChange={handleChange}
-            id="position"
-            name="position"
-            value={state.position}
-          />
+            <label htmlFor="major">Title of major: </label>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              id="major"
+              name="major"
+              value={this.state.major}
+            />
 
-          <label htmlFor="tasks">Main tasks for position: </label>
-          <textarea
-            type="text"
-            onChange={handleChange}
-            id="tasks"
-            name="tasks"
-            value={state.tasks}
-          />
+            <label htmlFor="gradDate">Date Graduated: </label>
+            <input
+              type="date"
+              onChange={this.handleChange}
+              id="gradDate"
+              name="gradDate"
+              value={this.state.gradDate}
+            />
+          </fieldset>
 
-          <label htmlFor="date">Start date: </label>
-          <input
-            type="date"
-            onChange={handleChange}
-            id="date"
-            name="date"
-            value={state.date}
-          />
+          <fieldset>
+            <legend>Work Experience</legend>
+            <label htmlFor="companyName">Enter Company Name: </label>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              id="companyName"
+              name="companyName"
+              value={this.state.companyName}
+            />
 
-          <label htmlFor="untilDate">End date: </label>
-          <input
-            type="date"
-            onChange={handleChange}
-            id="untilDate"
-            name="untilDate"
-            value={state.unitlDate}
-          />
-        </fieldset>
-        <button type="submit">Submit Form</button>
-      </form>
-    </div>
-  );
+            <label htmlFor="position">Position Title: </label>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              id="position"
+              name="position"
+              value={this.state.position}
+            />
+
+            <label htmlFor="tasks">Main tasks for position: </label>
+            <textarea
+              type="text"
+              onChange={this.handleChange}
+              id="Maintasks"
+              name="Maintasks"
+              value={this.state.tasks}
+            />
+
+            <label htmlFor="date">Start date: </label>
+            <input
+              type="date"
+              onChange={this.handleChange}
+              id="date"
+              name="date"
+              value={this.state.date}
+            />
+
+            <label htmlFor="untilDate">End date: </label>
+            <input
+              type="date"
+              onChange={this.handleChange}
+              id="untilDate"
+              name="untilDate"
+              value={this.state.unitlDate}
+            />
+          </fieldset>
+          <button type="submit">Submit Form</button>
+        </form>
+        {this.state.showForm === true && (
+          <div>
+            <p>{this.state.userName}</p>
+            <p>{this.state.email}</p>
+            <p>{this.state.phoneNumber}</p>
+            <p>{this.state.schoolName}</p>
+            <p>{this.state.major}</p>
+            <p>{this.state.gradDate}</p>
+            <p>{this.state.companyName}</p>
+            <p>{this.state.position}</p>
+            <p>{this.state.tasks}</p>
+            <p>{this.state.date}</p>
+            <p>{this.state.untilDate}</p>
+          </div>
+        )}
+      </div>
+    );
+  }
 }
-
-export default FillForm({ addInput });
